@@ -61,6 +61,7 @@ class Game:
             self.solved = False
             return False
         
+        
     def update(self):
         self.solved = self.is_solved()
         
@@ -82,7 +83,7 @@ class Game:
                 if move_size == limit:
                     break
                 
-            print(f"Move - Color: {move_color}; Size: {move_size}")
+            print(f"Moving {move_size} instance(s) of {move_color} from\n{source}\nto\n{destination}")
             for i in range(move_size):
                 destination.entries.append(source.entries.pop())
                 
@@ -93,8 +94,6 @@ class Game:
             
             print("Move is not valid")
             self.update()
-            
-        print(f"Source: {source}\nDestination: {destination}")
         
     
     

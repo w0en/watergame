@@ -19,7 +19,7 @@ tube1 = Tube(4, [])
 tube2 = Tube(4, [Entry(2, False), Entry(2, False), Entry(2, False), Entry(2, False)])
 tube3 = Tube(4, [Entry(3, False), Entry(3, False), Entry(3, False), Entry(3, False)])
 tube4 = Tube(4, [Entry(4, False), Entry(4, False), Entry(4, False), Entry(4, False)])
-tube5 = Tube(4, [Entry(5, True), Entry(5, False), Entry(6, False), Entry(6, False)])
+tube5 = Tube(4, [Entry(5, True), Entry(5, True), Entry(6, False), Entry(6, False)])
 tube6 = Tube(4, [Entry(6, False), Entry(6, False), Entry(5, False), Entry(5, False)])
 
 print("============== NEW RUN START ==============")

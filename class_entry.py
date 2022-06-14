@@ -26,10 +26,12 @@ class Entry:
         
         
     def __hash__(self):
+        """Simple override of hash function for equality checks"""
         if self.hidden:
             return hash(self.color)
         else:
             return hash(self.color + 16777216)
         
     def unhide(self):
+        """Sets the hidden property of Entry to False. Does nothing if the Entry is already not hidden."""
         self.hidden = False

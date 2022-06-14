@@ -5,7 +5,7 @@ class Tube:
     def __init__(self, capacity, entries):
         
         self.capacity = capacity
-        self.entries = entries #list of instances of Entry; hexstrings to represent color
+        self.entries = entries
         self.size = len(entries)
         self.solved = self.is_solved()
         self.score = self.calculate_score()
@@ -21,7 +21,7 @@ class Tube:
         return f"Tube: Entries: {self.entries}, Solved: {self.solved}"
 
     def __str__(self):
-        return f"Tube: Entries: {self.entries}\nCapacity: {self.capacity}, Solved: {self.solved}"
+        return f"Tube:\n\tEntries: {self.entries}\n\tCapacity: {self.capacity}, Solved: {self.solved}"
     
     
     def __eq__(self, other):
@@ -97,10 +97,16 @@ class Tube:
 
     def update(self):
         self.size = len(self.entries)
-        self.solved = self.is_solved()
         if self.size >= 1:
-            self.entries[-1].unhide()
+            comparison_color = self.entries[-1].color
+            i = 1
+            while (i <= self.size) and (self.entries[-i].color == comparison_color):
+                self.entries[-i].unhide()
+                i += 1
         self.score = self.calculate_score()
+        self.solved = self.is_solved() #Needs to be after the hidden check since whether a tube is solved depends on the hidden/open state of the entries
+    
+
     
 
 def is_valid_move(source, destination):
